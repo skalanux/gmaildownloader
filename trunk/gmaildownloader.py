@@ -20,7 +20,7 @@
 
 
 import libgmail
-cuenta=libgmail.GmailAccount(name='theskafiles', pw='nomerompaslaspelotas', state=None, domain=None)
+cuenta=libgmail.GmailAccount(name='accountname', pw='passs', state=None, domain=None)
 cuenta.login()
 
 unreadThreads = cuenta.getMessagesByQuery("is:" + libgmail.U_AS_SUBSET_UNREAD,
@@ -34,7 +34,7 @@ filenames={}
  
 for mensaje in unreadMsgs:
     for adjunto in mensaje.attachments:
-        fileHandler = open(adjunto.filename, "w")
+        fileHandler = open("/somefolder/"+adjunto.filename, "w")
         fileHandler.write(adjunto._getContent())
         fileHandler.close()
 
